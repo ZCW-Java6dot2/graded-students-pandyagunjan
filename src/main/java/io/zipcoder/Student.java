@@ -93,13 +93,14 @@ public Student() {
         StringBuilder str= new StringBuilder();
         str.append("Student Name: " + firstName +" "+ lastName + "\n");
         str.append("Average Score: " + getAverageExamScore() + "\n");
-        int counter=1;
+        str.append(this.getExamScores());
+    /*    int counter=1;
         for (int i = 0; i < examScores.size(); i++) {
             String strFormat= String.format("%1.0f", examScores.get(i));
             str.append("    Exam " + counter + " -->  " + strFormat+ "\n");
             counter++;
 
-        }
+        }*/
 
         return str.toString();
 
