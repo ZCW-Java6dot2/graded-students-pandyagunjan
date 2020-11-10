@@ -41,15 +41,44 @@ public class StudentTest {
     public void setExamScoreTest() {
         String firstName = "Leon";
         String lastName = "Hunter";
-        Double[] examScores = {100.0 ,99.5};
+        Double[] examScores = {100.0, 99.5};
         Student student = new Student(firstName, lastName, examScores);
 
         // When
-        student.setExamScore(1,88.5);
+        student.setExamScore(1, 88.5);
         String output = student.getExamScores();
 
         // Then
         LOGGER.info("\n" + output);
     }
+    @Test
+    public void getAverageTest() {
+        String firstName = "Leon";
+        String lastName = "Hunter";
+        Double[] examScores = {100.0, 150.0,250.0,100.0};
+        Student student = new Student(firstName, lastName, examScores);
+
+        // When
+        Double output=student.getAverageExamScore();
+
+        // Then
+        LOGGER.info("\n" + output);
+    }
+
+    @Test
+    public void toStringTest() {
+        String firstName = "Leon";
+        String lastName = "Hunter";
+        Double[] examScores = {100.0, 150.0,250.0,100.0};
+        Student student = new Student(firstName, lastName, examScores);
+
+        // When
+        String output=student.toString();
+
+        // Then
+        LOGGER.info("\n" + output);
+    }
+
+
 
 }
