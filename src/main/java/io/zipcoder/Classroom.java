@@ -60,20 +60,38 @@ public class Classroom {
 
  public void removeStudent(String firstName, String lastName)
  {
-     Student[] newStudents= new Student[students.length];
+     Student[] newStudents= new Student[students.length-1];
      int i=0;
+     int j=0;
 
-     for ( i = 0; i < students.length ;i++) {
-        if(students[i].getFirstName().equals(firstName) && students[i].getLastName().equals(lastName))
-          //  students[i]=null;
-             i++;
-        else
-         newStudents[i]=students[i];
-        i++;
+     for ( i = 0; i < students.length ;) {
+        if(students[i]==null)
+         {
+           i++;
+
+         }
+        else if((students[i].getFirstName().equals(firstName) && students[i].getLastName().equals(lastName)))
+        {
+               i++;
+        }
+         else
+        {
+            newStudents[j] = students[i];
+            i++;
+            j++;
+        }
      }
 
-    students=newStudents;
-
+     students=newStudents;
+     int l=0;
+     Student[] studentEndNull=new Student[newStudents.length-1];
+     for(int k=0;k< students.length-1;k++) {
+         if (students[k] != null) {
+         studentEndNull[l]=students[k];
+         l++;
+         }
+     }
+     students=studentEndNull;
  }
 
 
