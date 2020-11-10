@@ -79,6 +79,22 @@ public class ClassroomTest {
         // Then
         // LOGGER.info("\n" + postEnrollment);
     }
+    @Test
+    public void getStudentsByScoreTest() {
+        Classroom classroom = new Classroom(2);
+        Double[] examScores = {100.0, 15.0, 250.0, 0.0};
+        Student student = new Student("Dhruv", "Pandya", examScores);
+        Double[] examScores1 = {100.0, 150.0, 20.0, 0.0};
+        Student student1 = new Student("Daksh", "Pandya", examScores1);
+        // When
+        classroom.addStudent(student);
+        classroom.addStudent(student1);
 
+        Student[] preEnrollment = classroom.getStudents();
+        // Then
+        LOGGER.info("\n" + classroom.getStudentsByScore());
+
+        // Then
+    }
 
 }
