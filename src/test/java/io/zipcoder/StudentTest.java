@@ -5,8 +5,8 @@ import org.junit.Test;
 import java.util.logging.Logger;
 
 public class StudentTest {
-    private static final Logger LOGGER= Logger.getLogger("test'");
-          //  ;//= Logger.getLogger(StudentTest.class.getName());
+    private static final Logger LOGGER= Logger.getLogger(StudentTest.class.getName());
+
 
     @Test
     public void getExamScoresTest() {
