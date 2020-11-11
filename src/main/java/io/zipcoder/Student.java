@@ -3,6 +3,7 @@ package io.zipcoder;
 //import com.sun.org.apache.xpath.internal.operations.String;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Student {
@@ -16,11 +17,11 @@ public class Student {
     {
         this.firstName=firstName;
         this.lastName=lastName;
-        this.examScores=new ArrayList<>();
-        for(Double d:testScores)
+        this.examScores=new ArrayList<>(Arrays.asList(testScores));
+     /*   for(Double d:testScores)
         {
             this.examScores.add(d);
-        }
+        }*/
 
     }
 public Student() {
@@ -52,8 +53,8 @@ public Student() {
       str.append("Exam Scores:\n");
       int counter=1;
       for (int i = 0; i < examScores.size(); i++) {
-          String strFormat= String.format("%1.0f", examScores.get(i));
-           str.append("    Exam " + counter + " -->  " + strFormat+ "\n");
+          String strFormat= String.format("%1.1f", examScores.get(i));
+           str.append("Exam " + counter + " -> " + strFormat+ "\n");
            counter++;
 
      }
@@ -92,7 +93,8 @@ public Student() {
     {
         StringBuilder str= new StringBuilder();
         str.append("Student Name: " + firstName +" "+ lastName + "\n");
-        str.append("Average Score: " + getAverageExamScore() + "\n");
+        String storeAvgScore=String.format("%1.2f",getAverageExamScore());
+        str.append("Average Score: " + storeAvgScore + "\n");
         str.append(this.getExamScores());
     /*    int counter=1;
         for (int i = 0; i < examScores.size(); i++) {
