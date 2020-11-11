@@ -16,10 +16,10 @@ public class Student {
     {
         this.firstName=firstName;
         this.lastName=lastName;
-        examScores=new ArrayList<>();
+        this.examScores=new ArrayList<>();
         for(Double d:testScores)
         {
-            examScores.add(d);
+            this.examScores.add(d);
         }
 
     }
