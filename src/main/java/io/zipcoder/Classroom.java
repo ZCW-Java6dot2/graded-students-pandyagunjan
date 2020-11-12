@@ -100,10 +100,8 @@ public class Classroom {
  public Student[] getStudentsByScore()
  {
 
-     List<Student> studentList = new ArrayList<>(Arrays.asList(getStudents()));
-     Collections.reverse(studentList);
-     return studentList.toArray(new Student[studentList.size()]);
-
+  Arrays.sort(this.students);
+  return this.students;
 
  }
 

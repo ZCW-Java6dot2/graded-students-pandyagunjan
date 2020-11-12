@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class Student {
+public class Student implements Comparable<Student>{
 
 
     String firstName;
@@ -28,11 +28,11 @@ public Student() {
 
 }
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -67,13 +67,13 @@ public Student() {
  public void addExamScore(double examScore)
  {
     // Integer addExam = examScores.size() +1;
-     examScores.add(examScore);
+     this.examScores.add(examScore);
    //  this.getExamScores();
  }
 
  public void setExamScore(int examNumber,double newScore)
  {
-     examScores.set(examNumber,newScore);
+     this.examScores.set(examNumber,newScore);
 
  }
 
@@ -102,13 +102,16 @@ public Student() {
             str.append("    Exam " + counter + " -->  " + strFormat+ "\n");
             counter++;
 
-        }*/
+    }*/
 
         return str.toString();
 
     }
 
 
+    @Override
+    public int compareTo(Student student2) {
 
-
+        return Double.compare(this.getAverageExamScore() , student2.getAverageExamScore());
+    }
 }

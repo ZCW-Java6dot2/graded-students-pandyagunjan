@@ -1,11 +1,18 @@
 package io.zipcoder;
 
+import org.junit.*;
+import static org.junit.Assert.*;
+import java.util.logging.Logger;
+
+import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import org.junit.Test;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ClassroomTest {
-
+    private static final Logger LOGGER= Logger.getLogger(ClassroomTest.class.getName());
     @Test
     public void ClassroomMaxStudentTest(){
         Classroom classroom = new Classroom(30);
@@ -76,55 +83,25 @@ public class ClassroomTest {
         Student [] expected = {gunjan};
         Student [] actual = classR.getStudents();
         assertEquals(expected,actual);
-    }
+    }*/
     @Test
     public void getStudentsByScoreTest(){
         Double [] GunjanExamScore = {90.0,90.0,90.0};;
-        Student Gunjan = new Student("Gunjan","White",GunjanExamScore);
-        Double [] dhruvExamScore = {94.0,95.0,93.0};
+        Student Gunjan = new Student("Gunjan","Pandya",GunjanExamScore);
+        Double [] dhruvExamScore = {22.5,52.3,88.0};
         Student dhruv = new Student("dhruv", "pandya",dhruvExamScore);
-        Student [] school = {Gunjan,dhruv};
+        Double [] dakshExamScore = {94.0,95.0,93.0};
+        Student daksh = new Student("Daksh", "pandya",dakshExamScore);
+        Student [] school = {Gunjan,dhruv,daksh};
         Classroom classR = new Classroom(school);
 
         Student [] expected = {dhruv,Gunjan};
+       // System.out.print(expected.toString());
         Student [] actual = classR.getStudentsByScore();;
-        assertEquals(expected,actual);
+        //System.out.print(actual.toString());
+
+        LOGGER.info("\n" + Arrays.toString(classR.getStudentsByScore()));
     }
-  /*  @Test
-    public void getGradeBookTest(){
-        Double [] GunjanExamScore = {90.0,90.0,90.0};;
-        Student Gunjan = new Student("Gunjan","White",GunjanExamScore);
-        Double [] dhruvExamScore = {94.0,95.0,93.0};
-        Student dhruv = new Student("dhruv", "pandya",dhruvExamScore);
-        Double [] joeExamScore = {77.0,69.0,80.0};
-        Student joe = new Student("Joe","Momma",joeExamScore);
-        Student [] school = {Gunjan,dhruv,joe};
-        Classroom classR = new Classroom(school);
 
-        String expected = "Student name: Ned Flanders\n" +
-                "> Average score: 99.0\n" +
-                "> Exam scores:\n" +
-                "Exam 1 -> 99.0\n" +
-                "Exam 2 -> 98.0\n" +
-                "Exam 3 -> 100.0\n" +
-                "GRADE: A\n" +
-                "Student name: dhruv pandya\n" +
-                "> Average score: 94.0\n" +
-                "> Exam scores:\n" +
-                "Exam 1 -> 94.0\n" +
-                "Exam 2 -> 95.0\n" +
-                "Exam 3 -> 93.0\n" +
-                "GRADE: B\n" +
-                "Student name: Gunjan White\n" +
-                "> Average score: 90.0\n" +
-                "> Exam scores:\n" +
-                "Exam 1 -> 90.0\n" +
-                "Exam 2 -> 90.0\n" +
-                "Exam 3 -> 90.0\n" +
-                "GRADE: C\n";
-
-        String actual = classR.getGradeBook();
-        assertEquals(expected,actual);
-    }*/
 
 }
