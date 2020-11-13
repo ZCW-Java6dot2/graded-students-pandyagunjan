@@ -99,10 +99,55 @@ public class Classroom {
 
  public Student[] getStudentsByScore()
  {
-
   Arrays.sort(this.students);
   return this.students;
 
  }
 
-}
+ public Map<Character,ArrayList<Student>> getGradeBook()
+ {
+     HashMap<Character , ArrayList<Student>> studentGradeGroup= new HashMap<>();
+     ArrayList<Student> studentsA = new ArrayList<>();
+     ArrayList<Student> studentsB = new ArrayList<>();
+     ArrayList<Student> studentsC = new ArrayList<>();
+     ArrayList<Student> studentsD = new ArrayList<>();
+     ArrayList<Student> studentsF = new ArrayList<>();
+
+    // Arrays.sort(this.students);
+     for(int i=0;i < students.length;i++)
+     {
+         int count=0;
+         int percent=0;
+         for(int j=0;j<students.length;j++)
+         {
+             if(students[i].getAverageExamScore() > students[j].getAverageExamScore())
+             {
+                 count++;
+             }
+         }
+          percent=(count*100)/(students.length-1);
+             if(percent >89){
+                 studentsA.add(students[i]);
+             }
+             else if(percent <=89&& percent >=70){
+
+                 studentsB.add(students[i]);
+             }
+             else if(percent <=70 && percent >=49){
+                 studentsC.add(students[i]);
+             }
+             else if(percent <=49 && percent >=11)
+                 studentsD.add(students[i]);
+             else
+                 studentsF.add(students[i]);
+         }
+     studentGradeGroup.put('A',studentsA);
+     studentGradeGroup.put('B',studentsB);
+     studentGradeGroup.put('C',studentsC);
+     studentGradeGroup.put('D',studentsD);
+     studentGradeGroup.put('F',studentsF);
+     return studentGradeGroup;
+     }
+
+ }
+
